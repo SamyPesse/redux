@@ -1,42 +1,46 @@
-# <a href='http://redux.js.org'><img src='https://camo.githubusercontent.com/f28b5bc7822f1b7bb28a96d8d09e7d79169248fc/687474703a2f2f692e696d6775722e636f6d2f4a65567164514d2e706e67' height='60' alt='Redux Logo' aria-label='Redux.js.org' /></a>
+# Read Me
 
 Redux is a predictable state container for JavaScript apps.  
-(Not to be confused with a WordPress framework – [Redux Framework](https://reduxframework.com/).)
+\(Not to be confused with a WordPress framework – [Redux Framework](https://reduxframework.com/).\)
 
-It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience, such as [live code editing combined with a time traveling debugger](https://github.com/gaearon/redux-devtools).
+It helps you write applications that behave consistently, run in different environments \(client, server, and native\), and are easy to test. On top of that, it provides a great developer experience, such as [live code editing combined with a time traveling debugger](https://github.com/gaearon/redux-devtools).
 
 You can use Redux together with [React](https://facebook.github.io/react/), or with any other view library.  
-It is tiny (2kB, including dependencies).
+It is tiny \(2kB, including dependencies\).
 
->**Learn Redux from its creator:**  
->**[Part 1: Getting Started with Redux](https://egghead.io/series/getting-started-with-redux) (30 free videos)**<br>
->**[Part 2: Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux) (27 free videos)**
+> **Learn Redux from its creator:**  
+> [**Part 1: Getting Started with Redux**](https://egghead.io/series/getting-started-with-redux)** \(30 free videos\)**  
+>   
+> [**Part 2: Building React Applications with Idiomatic Redux**](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)** \(27 free videos\)**
 
 ## Testimonials
 
->[“Love what you're doing with Redux”](https://twitter.com/jingc/status/616608251463909376)  
->Jing Chen, creator of Flux
-
->[“I asked for comments on Redux in FB's internal JS discussion group, and it was universally praised. Really awesome work.”](https://twitter.com/fisherwebdev/status/616286955693682688)  
->Bill Fisher, author of Flux documentation
-
->[“It's cool that you are inventing a better Flux by not doing Flux at all.”](https://twitter.com/andrestaltz/status/616271392930201604)  
->André Staltz, creator of Cycle
+> [“Love what you're doing with Redux”](https://twitter.com/jingc/status/616608251463909376)  
+> Jing Chen, creator of Flux
+>
+> [“I asked for comments on Redux in FB's internal JS discussion group, and it was universally praised. Really awesome work.”](https://twitter.com/fisherwebdev/status/616286955693682688)  
+> Bill Fisher, author of Flux documentation
+>
+> [“It's cool that you are inventing a better Flux by not doing Flux at all.”](https://twitter.com/andrestaltz/status/616271392930201604)  
+> André Staltz, creator of Cycle
 
 ## Before Proceeding Further
 
 Redux is a valuable tool for organizing your state, but you should also consider whether it's appropriate for your situation.  Here's some suggestions on when it makes sense to use Redux:
+
 * You have reasonable amounts of data changing over time
 * You need a single source of truth for your state
 * You find that keeping all your state in a top-level component is no longer sufficient
 
 Yes, these guidelines are subjective and vague, but this is for good reason. The point at which you should integrate Redux into your application is different for every user and different for every application.
 
->**For more thoughts on how Redux is meant to be used, see:**<br>
->- **[You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)**<br>
->- **[The Tao of Redux, Part 1 - Implementation and Intent](http://blog.isquaredsoftware.com/2017/05/idiomatic-redux-tao-of-redux-part-1/)**<br>
->- **[The Tao of Redux, Part 2 - Practice and Philosophy](http://blog.isquaredsoftware.com/2017/05/idiomatic-redux-tao-of-redux-part-2/)**
->- **[Redux FAQ](https://redux.js.org/faq)**
+> **For more thoughts on how Redux is meant to be used, see:**  
+>
+>
+> * [**You Might Not Need Redux**](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367) 
+> * [**The Tao of Redux, Part 1 - Implementation and Intent**](http://blog.isquaredsoftware.com/2017/05/idiomatic-redux-tao-of-redux-part-1/) 
+> * [**The Tao of Redux, Part 2 - Practice and Philosophy**](http://blog.isquaredsoftware.com/2017/05/idiomatic-redux-tao-of-redux-part-2/)
+> * [**Redux FAQ**](https://redux.js.org/faq)
 
 ## Developer Experience
 
@@ -51,11 +55,11 @@ Whether you have used them or not, Redux only takes a few minutes to get started
 
 To install the stable version:
 
-```
+```text
 npm install --save redux
 ```
 
-This assumes you are using [npm](https://www.npmjs.com/) as your package manager.  
+This assumes you are using [npm](https://www.npmjs.com/) as your package manager.
 
 If you're not, you can [access these files on unpkg](https://unpkg.com/redux/), download them, or point your package manager to them.
 
@@ -69,7 +73,7 @@ The Redux source code is written in ES2015 but we precompile both CommonJS and U
 
 Most likely, you'll also need [the React bindings](https://github.com/reactjs/react-redux) and [the developer tools](https://github.com/gaearon/redux-devtools).
 
-```
+```text
 npm install --save react-redux
 npm install --save-dev redux-devtools
 ```
@@ -78,13 +82,13 @@ Note that unlike Redux itself, many packages in the Redux ecosystem don't provid
 
 ## The Gist
 
-The whole state of your app is stored in an object tree inside a single *store*.  
-The only way to change the state tree is to emit an *action*, an object describing what happened.  
-To specify how the actions transform the state tree, you write pure *reducers*.
+The whole state of your app is stored in an object tree inside a single _store_.  
+The only way to change the state tree is to emit an _action_, an object describing what happened.  
+To specify how the actions transform the state tree, you write pure _reducers_.
 
 That's it!
 
-```js
+```javascript
 import { createStore } from 'redux'
 
 /**
@@ -132,7 +136,7 @@ store.dispatch({ type: 'DECREMENT' })
 // 1
 ```
 
-Instead of mutating the state directly, you specify the mutations you want to happen with plain objects called *actions*. Then you write a special function called a *reducer* to decide how every action transforms the entire application's state.
+Instead of mutating the state directly, you specify the mutations you want to happen with plain objects called _actions_. Then you write a special function called a _reducer_ to decide how every action transforms the entire application's state.
 
 If you're coming from Flux, there is a single important difference you need to understand. Redux doesn't have a Dispatcher or support many stores. Instead, there is just a single store with a single root reducing function. As your app grows, instead of adding stores, you split the root reducer into smaller reducers independently operating on the different parts of the state tree. This is exactly like how there is just one root component in a React app, but it is composed out of many small components.
 
@@ -142,20 +146,20 @@ This architecture might seem like an overkill for a counter app, but the beauty 
 
 [Getting Started with Redux](https://egghead.io/series/getting-started-with-redux) is a video course consisting of 30 videos narrated by Dan Abramov, author of Redux. It is designed to complement the “Basics” part of the docs while bringing additional insights about immutability, testing, Redux best practices, and using Redux with React. **This course is free and will always be.**
 
->[“Great course on egghead.io by @dan_abramov - instead of just showing you how to use #redux, it also shows how and why redux was built!”](https://twitter.com/sandrinodm/status/670548531422326785)  
->Sandrino Di Mattia
-
->[“Plowing through @dan_abramov 'Getting Started with Redux' - its amazing how much simpler concepts get with video.”](https://twitter.com/chrisdhanaraj/status/670328025553219584)  
->Chris Dhanaraj
-
->[“This video series on Redux by @dan_abramov on @eggheadio is spectacular!”](https://twitter.com/eddiezane/status/670333133242408960)  
->Eddie Zaneski
-
->[“Come for the name hype. Stay for the rock solid fundamentals. (Thanks, and great job @dan_abramov and @eggheadio!)”](https://twitter.com/danott/status/669909126554607617)  
->Dan
-
->[“This series of videos on Redux by @dan_abramov is repeatedly blowing my mind - gunna do some serious refactoring”](https://twitter.com/gelatindesign/status/669658358643892224)  
->Laurence Roberts
+> [“Great course on egghead.io by @dan\_abramov - instead of just showing you how to use \#redux, it also shows how and why redux was built!”](https://twitter.com/sandrinodm/status/670548531422326785)  
+> Sandrino Di Mattia
+>
+> [“Plowing through @dan\_abramov 'Getting Started with Redux' - its amazing how much simpler concepts get with video.”](https://twitter.com/chrisdhanaraj/status/670328025553219584)  
+> Chris Dhanaraj
+>
+> [“This video series on Redux by @dan\_abramov on @eggheadio is spectacular!”](https://twitter.com/eddiezane/status/670333133242408960)  
+> Eddie Zaneski
+>
+> [“Come for the name hype. Stay for the rock solid fundamentals. \(Thanks, and great job @dan\_abramov and @eggheadio!\)”](https://twitter.com/danott/status/669909126554607617)  
+> Dan
+>
+> [“This series of videos on Redux by @dan\_abramov is repeatedly blowing my mind - gunna do some serious refactoring”](https://twitter.com/gelatindesign/status/669658358643892224)  
+> Laurence Roberts
 
 So, what are you waiting for?
 
@@ -182,22 +186,22 @@ For Offline docs, please see: [devdocs](http://devdocs.io/redux/)
 
 Almost all examples have a corresponding CodeSandbox sandbox. This is an interactive version of the code that you can play with online.
 
-* [Counter Vanilla](http://redux.js.org/docs/introduction/Examples.html#counter-vanilla) ([source](https://github.com/reactjs/redux/tree/master/examples/counter-vanilla))
-* [Counter](http://redux.js.org/docs/introduction/Examples.html#counter) ([source](https://github.com/reactjs/redux/tree/master/examples/counter), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/counter))
-* [Todos](http://redux.js.org/docs/introduction/Examples.html#todos) ([source](https://github.com/reactjs/redux/tree/master/examples/todos), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/todos))
-* [Todos with Undo](http://redux.js.org/docs/introduction/Examples.html#todos-with-undo) ([source](https://github.com/reactjs/redux/tree/master/examples/todos-with-undo), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/todos-with-undo))
-* [TodoMVC](http://redux.js.org/docs/introduction/Examples.html#todomvc) ([source](https://github.com/reactjs/redux/tree/master/examples/todomvc), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/todomvc))
-* [Shopping Cart](http://redux.js.org/docs/introduction/Examples.html#shopping-cart) ([source](https://github.com/reactjs/redux/tree/master/examples/shopping-cart), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/shopping-cart))
-* [Tree View](http://redux.js.org/docs/introduction/Examples.html#tree-view) ([source](https://github.com/reactjs/redux/tree/master/examples/tree-view), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/tree-view))
-* [Async](http://redux.js.org/docs/introduction/Examples.html#async) ([source](https://github.com/reactjs/redux/tree/master/examples/async), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/async))
-* [Universal](http://redux.js.org/docs/introduction/Examples.html#universal) ([source](https://github.com/reactjs/redux/tree/master/examples/universal))
-* [Real World](http://redux.js.org/docs/introduction/Examples.html#real-world) ([source](https://github.com/reactjs/redux/tree/master/examples/real-world), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/real-world))
+* [Counter Vanilla](http://redux.js.org/docs/introduction/Examples.html#counter-vanilla) \([source](https://github.com/reactjs/redux/tree/master/examples/counter-vanilla)\)
+* [Counter](http://redux.js.org/docs/introduction/Examples.html#counter) \([source](https://github.com/reactjs/redux/tree/master/examples/counter), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/counter)\)
+* [Todos](http://redux.js.org/docs/introduction/Examples.html#todos) \([source](https://github.com/reactjs/redux/tree/master/examples/todos), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/todos)\)
+* [Todos with Undo](http://redux.js.org/docs/introduction/Examples.html#todos-with-undo) \([source](https://github.com/reactjs/redux/tree/master/examples/todos-with-undo), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/todos-with-undo)\)
+* [TodoMVC](http://redux.js.org/docs/introduction/Examples.html#todomvc) \([source](https://github.com/reactjs/redux/tree/master/examples/todomvc), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/todomvc)\)
+* [Shopping Cart](http://redux.js.org/docs/introduction/Examples.html#shopping-cart) \([source](https://github.com/reactjs/redux/tree/master/examples/shopping-cart), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/shopping-cart)\)
+* [Tree View](http://redux.js.org/docs/introduction/Examples.html#tree-view) \([source](https://github.com/reactjs/redux/tree/master/examples/tree-view), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/tree-view)\)
+* [Async](http://redux.js.org/docs/introduction/Examples.html#async) \([source](https://github.com/reactjs/redux/tree/master/examples/async), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/async)\)
+* [Universal](http://redux.js.org/docs/introduction/Examples.html#universal) \([source](https://github.com/reactjs/redux/tree/master/examples/universal)\)
+* [Real World](http://redux.js.org/docs/introduction/Examples.html#real-world) \([source](https://github.com/reactjs/redux/tree/master/examples/real-world), [sandbox](https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/real-world)\)
 
 If you're new to the NPM ecosystem and have troubles getting a project up and running, or aren't sure where to paste the gist above, check out [simplest-redux-example](https://github.com/jackielii/simplest-redux-example) that uses Redux together with React and Browserify.
 
 ## Discussion
 
-Join the [#redux](https://discord.gg/0ZcbPKXt5bZ6au5t) channel of the [Reactiflux](http://www.reactiflux.com) Discord community.
+Join the [\#redux](https://discord.gg/0ZcbPKXt5bZ6au5t) channel of the [Reactiflux](http://www.reactiflux.com) Discord community.
 
 ## Thanks
 
@@ -231,8 +235,9 @@ Meet some of the outstanding companies that made it possible:
 * [Webflow](https://github.com/webflow)
 * [Ximedes](https://www.ximedes.com/)
 
-[See the full list of Redux patrons](PATRONS.md), as well as the always-growing list of [people and companies that use Redux](https://github.com/reactjs/redux/issues/310).
+[See the full list of Redux patrons](patrons.md), as well as the always-growing list of [people and companies that use Redux](https://github.com/reactjs/redux/issues/310).
 
 ## License
 
 MIT
+
